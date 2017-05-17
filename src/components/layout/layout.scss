@@ -1,0 +1,30 @@
+body {
+    margin: 8px;
+    padding: 0;
+}
+
+.qq {
+    &-app {
+        display: grid;
+        grid-template-columns: 50px 150px auto;
+        grid-template-rows: 50px 50px 50px auto 50px;
+    }
+
+    &-content {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 4;
+        grid-row-end: 5;
+
+        &-section {
+
+        }
+    }
+
+    &-footer {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 5;
+        grid-row-end: 5;
+    }
+}

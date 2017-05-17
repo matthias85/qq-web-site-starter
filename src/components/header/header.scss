@@ -1,0 +1,23 @@
+.qq-header {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    &-brand {
+        height: 50px;
+
+    }
+
+    &-titlebar {
+
+    }
+
+    &-actionbar {
+
+    }
+
+    &-tabbar {
+
+    }
+}

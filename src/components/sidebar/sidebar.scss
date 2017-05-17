@@ -1,0 +1,10 @@
+.qq-sidebar {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+    &-nav {
+        list-style: none;
+    }
+}
