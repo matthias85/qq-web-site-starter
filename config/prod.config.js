@@ -8,23 +8,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 /*
  * Clean Paths with CleanWebpackPlugin and HtmlWebpackPlugin
  */
-let cleanPaths = [
-  'dist',
-  'build'
+const cleanPaths = [
+  'dist'
 ]
 
-let cleanOptions = {
-  root:     '/full/webpack/root/path',
-  exclude:  ['shared.js'],
-  verbose:  true,
-  dry:      false
+const cleanOptions = {
+    root: path.resolve(__dirname , '..'),
+    verbose: true,
+    dry: false
 }
 
 /*
  * Bundle CSS from Sass
  */
 
-let cssOptions = {
+const cssOptions = {
     filename: 'app.min.css',
     disable: false,
     allChunks: true
@@ -34,9 +32,9 @@ let cssOptions = {
 module.exports = {
     entry: './src/app.js',
     output: {
-        path: path.resolve(__dirname, 'build'),
-        publicPath: path.resolve(__dirname, 'build'),
-        filename: 'app.js'
+        path: path.resolve(__dirname, '../dist'),
+        publicPath: path.resolve(__dirname, '../dist'),
+        filename: 'app.min.js'
     },
     module: {
         rules: [

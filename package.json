@@ -5,9 +5,10 @@
   "main": "./src/app.js",
   "scripts": {
     "test": "test",
-    "start": "http-server ./dist -p 3030 | webpack -p -w",
-    "dev": "webpack-dev-server ./build -p 3030 | webpack -p -w",
-    "build": "webpack -p"
+    "build-dev": "webpack -p --config config/dev.config.js",
+    "dev": "webpack-dev-server ./build --p 3000 | webpack -p -w --config config/dev.config.js",
+    "build-prod": "webpack -p --config config/prod.config.js",
+    "prod": "http-server ./dist -p 3030 | webpack -p -w --config config/prod.config.js"
   },
   "author": "Matthias Schmidt",
   "license": "MIT",
