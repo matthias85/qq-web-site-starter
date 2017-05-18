@@ -1,5 +1,5 @@
 require('./layout.scss');
 
-qqAlert = function() {
+var qqAlert = function() {
     alert("Hello! I am an alert box!");
 }

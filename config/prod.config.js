@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
  * Clean Paths with CleanWebpackPlugin and HtmlWebpackPlugin
  */
 const cleanPaths = [
-  'dist'
+  'dist/*.*'
 ]
 
 const cleanOptions = {
@@ -33,7 +33,7 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve(__dirname, '../dist'),
-        publicPath: path.resolve(__dirname, '../dist'),
+        publicPath: './',
         filename: 'app.min.js'
     },
     module: {
@@ -42,11 +42,14 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
+                    use: ['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
                 })
             }, {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loader: "file-loader?name=/assets/images/[name].[ext]"
+            }, {
+                test: /\.(ttf|svg|eot|woff|woff2)$/,
+                loader: 'file-loader?name=/fonts/[name].[ext]'
             }
         ]
     },
@@ -54,6 +57,6 @@ module.exports = {
         new CleanWebpackPlugin(cleanPaths, cleanOptions),
         new ExtractTextPlugin(cssOptions),
         new webpack.optimize.UglifyJsPlugin(),
-        new HtmlWebpackPlugin({template: './src/index.html'})
+        new HtmlWebpackPlugin({template: './src/index.html', xhtml: true})
     ]
 };
