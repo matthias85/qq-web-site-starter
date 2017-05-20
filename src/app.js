@@ -1,4 +1,4 @@
-// require('./components/layout/layout');
+require('./components/base/base');
 // require('./components/icons/icons');
 //
 // require('./components/header/header');

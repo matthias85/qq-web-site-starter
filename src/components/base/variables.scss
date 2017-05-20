@@ -1,0 +1,13 @@
+$lighten-factor: 10%;
+$darken-factor: 10%;
+
+$color-brand-primary: #1b4b99;
+$color-brand-primary-light: lighten($color-brand-primary, $lighten-factor);
+$color-brand-primary-dark: darken($color-brand-primary, $darken-factor);
+
+$color-brand-secondary: #ffdd56;
+$color-brand-primary-light: lighten($color-brand-primary, $lighten-factor);
+$color-brand-primary-dark: darken($color-brand-primary, $darken-factor);
+
+$header-color-primary: $color-brand-primary;
+$header-color-secondary: $color-brand-primary-light;

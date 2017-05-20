@@ -5,10 +5,16 @@
   "main": "./src/app.js",
   "scripts": {
     "test": "test",
-    "build-dev": "webpack -p --config config/dev.config.js",
-    "dev": "webpack-dev-server ./build --port 3000 | webpack -p -w --config config/dev.config.js",
-    "build-prod": "webpack -p --config config/prod.config.js",
-    "prod": "http-server ./dist -p 3030 | webpack -p -w --config config/prod.config.js"
+    "clean:build": "npm run rimraf -- build",
+    "clean:dist": "npm run rimraf -- dist",
+    "beforebuild": "npm run clean:dist &&",
+    "build:dev": "npm run webpack -- --config config/webpack.dev.js --progress --profile",
+    "build:prod": "npm run webpack -- --config config/webpack.prod.js --progress --profile",
+    "rimraf": "rimraf",
+    "server:dev": "npm run webpack-dev-server -- --config config/webpack.dev.js --open --progress --profile --watch --content-base build/",
+    "start": "npm run server:dev",
+    "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
   },
   "author": "Matthias Schmidt",
   "license": "MIT",
@@ -27,11 +33,13 @@
     "http-server": "^0.10.0",
     "node-sass": "^4.5.2",
     "resolve-url-loader": "^2.0.2",
+    "rimraf": "^2.6.1",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {}
 }

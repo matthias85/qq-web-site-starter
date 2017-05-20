@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: 'icomoon';
 
@@ -11,6 +13,7 @@
 }
 
 [class^="icon-"], [class*=" icon-"] {
+    text-align: center;
   /* use !important to prevent issues with browser extensions that change fonts */
   &:before {
       font-family: 'icomoon' !important;
